@@ -1,0 +1,246 @@
+body {
+  background-color: rgba(20, 20, 40, 0.85);
+  background: radial-gradient(
+    circle,
+    rgba(20, 20, 40, 0.85),
+    rgba(0, 0, 0, 0.9)
+  );
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.categoryTitle {
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-top: 70px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.categoryTitle::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 4px;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+.categoryContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.container {
+  margin-top: 30px;
+  max-width: 90%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.container img {
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid white;
+  transition: transform ease-in-out 0.5s;
+}
+
+.editOne {
+  margin-left: 30px;
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.previewImage:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.folder-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: auto;
+  padding: 20px;
+  flex-wrap: wrap;
+  border-radius: 50px;
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.movie-item {
+  margin-top: 10px;
+  max-width: 90%;
+  justify-content: center;
+}
+
+.details {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  transition: opacity 0.3s ease;
+}
+
+.closeMenu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.detailsTitle {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.detailsImg {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.pDetails {
+  color: white;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.pDlc {
+  color: white;
+  font-size: 1rem;
+  margin: 5px 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.pTrailer {
+  display: block;
+  color: #ff7e5f;
+  width: 100px;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin: 15px auto;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pTrailer:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  body {
+    background: radial-gradient(
+      circle,
+      rgba(20, 20, 40, 0.85),
+      rgba(0, 0, 0, 0.9)
+    );
+    height: auto;
+  }
+
+  .categoryTitle {
+    font-size: 2em;
+    margin-top: 50px;
+  }
+
+  .container {
+    gap: 20px;
+  }
+
+  .container img {
+    width: 80%;
+    max-width: 200px;
+  }
+
+  .details {
+    background-color: rgba(0, 0, 0, 0.93);
+  }
+
+  .detailsImg {
+    max-width: 100%;
+    max-height: 70%;
+  }
+
+  .pDetails {
+    font-size: 1rem;
+    margin-top: 10px 0px;
+  }
+
+  .pDlc {
+    font-size: 0.9rem;
+    margin: 4px 0;
+  }
+
+  .pTrailer {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  .closeMenu {
+    font-size: 20px;
+  }
+}

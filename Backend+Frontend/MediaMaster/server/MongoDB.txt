@@ -1,0 +1,67 @@
+MongoDB Download Steps
+
+Step 1: Install Homebrew (if not already installed)
+Homebrew is a package manager for macOS that simplifies the installation of software.
+Command:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
+Step 2: Add the MongoDB Tap
+A tap in Homebrew is a way to access external repositories.
+Command:
+brew tap mongodb/brew
+
+Step 3: Install MongoDB
+Command:
+brew install mongodb-community
+
+Step 4: Start MongoDB Service
+Command:
+brew services start mongodb/brew/mongodb-community
+
+
+Step 5: Access the MongoDB Shell
+Command:
+mongosh
+
+Step 6: Create or Switch to a Database
+Command:
+use myDatabase
+
+Step 7: Create a Collection and Insert Documents
+Insert a Single Document:
+db.myCollection.insertOne({ name: "John Doe", age: 30 })
+
+Insert Multiple Documents:
+db.myCollection.insertMany([
+    { name: "Jane Doe", age: 25 },
+    { name: "Alice Smith", age: 28 }
+])
+
+Step 8: Query Data
+Command:
+db.myCollection.find().pretty()
+
+
+Step 9: Stop the MongoDB Service
+Command:
+brew services stop mongodb/brew/mongodb-community
+
+
+Show Databases:
+show dbs
+
+Deletes the specified collection:
+db.myCollection.drop()
+
+Show Collections in the Current Database:
+show collections
+
+
+To export data from a MongoDB database to a file
+you can use the mongoexport command-line tool that comes with MongoDB:
+mongoexport --db your_database --collection your_collection --out output_file.json --jsonArray
+
+
+
+

@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+
+<% if (posts.length > 0) { %>
+    <h1 style="color: blue;">Ocean Of Drops</h1>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li><a href="/posts/<%= post.id %>"><h3><%= post.title %></h3></a><p style="color: gray;"><%= post.content %></p></li>
+        <% }); %>
+    </ul>
+<% } else { %>
+    <h1>Welcome To WaterDrop</h1>
+    <p>Here you will see everybody's thoughts.</p>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

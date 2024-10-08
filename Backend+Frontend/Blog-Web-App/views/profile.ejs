@@ -1,0 +1,22 @@
+
+
+
+
+<%- include("partials/header.ejs") %>
+
+<h1>My Drops</h1>
+<img style="margin-bottom: 30px;" class="profile" src="images/cat.jpeg" alt="cat profile" />
+<% if (locals.posts) { %>
+<ul>
+  <% posts.forEach(post => { %>
+  <li>
+    <h3><%= post.title %></h3>
+    <p style="color: gray"><%= post.content %></p>
+  </li>
+  <% }); %>
+</ul>
+<% } else { %>
+<h1>here you will see Your Drops</h1>
+<p>Just click on New Drop</p>
+
+<% } %> <%- include("partials/footer.ejs") %>
