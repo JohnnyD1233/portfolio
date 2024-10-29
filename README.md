@@ -9,7 +9,9 @@ Below, you will find a brief description of each technologies used.
 
 - Node.js
 - Express
-- MongoDB (with Mongoose)
+- MongoDB
+- PostgreSQL
 - dotenv for environment variables
 - CORS for cross-origin requests
 - React for the client-side interface
+- EJS 
