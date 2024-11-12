@@ -1,3 +1,5 @@
+<img src="./media-master-logo.webp" style="width:auto; height:100px;">
+
 # Movies/Games Management API
 
 This is an Express.js application that provides a RESTful API for managing items in categories like TV series, movies, and video games. The application utilizes MongoDB for data storage, and it includes a client-side interface built with React.

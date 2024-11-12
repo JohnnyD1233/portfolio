@@ -1,3 +1,5 @@
+<img src="./family-travel tracker-logo.png" style="width:auto; height:100px;">
+
 # Country Tracker Application
 
 This is an Express.js application that allows users to track countries they have visited. Users can add countries, delete them, and manage their profiles with different colors associated with each user.

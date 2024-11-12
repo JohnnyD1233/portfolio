@@ -1,3 +1,5 @@
+<img src="./water-drop-logo.png" style="width:auto; height:100px;">
+
 # Simple Blogging Platform
 
 This is a basic blogging platform built with Express.js, allowing users to create and view posts. Users can access a home page to see all posts, a profile page, and a new post creation page.
