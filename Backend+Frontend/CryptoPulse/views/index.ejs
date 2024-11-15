@@ -4,107 +4,122 @@
     <title>Crypto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
   </head>
 
   <body>
-    <h1>Live Cryptocurrency Prices</h1>
+    <h1 class="title">Live Cryptocurrency Prices</h1>
 
-    <div>
-      <div class="Bitcoin">
-      <h2 id="BTC"><%= BTC %></h2>
-      <img src="/images/Bitcoin-BTC.png" width="50" height="50" />
-      <p class="user" id="Bprice"><%= Bprice %> $</p>
-      <img id="Bprice-img" class="price-indicator" width="20" height="30"/></p>
-      </div><div class="Ethereum">
-      <h2 id="ETH"><%= ETH %></h2>
-      <img src="/images/Ethereum-ETH.png" width="50" height="50" />
-      <p class="user" id="Eprice"><%= Eprice %> $</p>
-      <img id="Eprice-img" class="price-indicator" width="20" height="30"/></p>
-</div><div class="thether">
-      <h2 id="TUSDT"><%= USD %></h2>
-      <img src="/images/Tether-USDT.png" width="50" height="50" />
-      <p class="user" id="Uprice"><%= Uprice %> $</p>
-      <img id="Uprice-img" class="price-indicator" width="20" height="30"/></p>
+    <div class="container">
+      <div class="Bitcoin token">
+        <h2 id="BTC"><%= BTC %></h2>
+        <img src="/images/Bitcoin-BTC.png" width="50" height="50" />
+        <div class="pricesImg">
+          <p class="user" id="Bprice"><%= Bprice %> $</p>
+          <img id="Bprice-img" class="price-indicator" width="20" height="30" />
+        </div>
       </div>
-      <div class="Frapped">
-      <h2 id="FUSDT">FUSDT</h2>
-      <img src="/images/Frapped-USDT.png" width="50" height="50" />
-      <p id="FUSDT" class="user"><%= FUSDT %></p>
-    </div>
+      <div class="Ethereum token">
+        <h2 id="ETH"><%= ETH %></h2>
+        <img src="/images/Ethereum-ETH.png" width="50" height="50" />
+        <div class="pricesImg">
+          <p class="user" id="Eprice"><%= Eprice %> $</p>
+          <img id="Eprice-img" class="price-indicator" width="20" height="30" />
+        </div>
+      </div>
+      <div class="thether token">
+        <h2 id="TUSDT"><%= USD %></h2>
+        <img src="/images/Tether-USDT.png" width="50" height="50" />
+        <div class="pricesImg">
+          <p class="user" id="Uprice"><%= Uprice %> $</p>
+          <img id="Uprice-img" class="price-indicator" width="20" height="30" />
+        </div>
+      </div>
+      <div class="Frapped token">
+        <h2 id="FUSDT">FUSDT</h2>
+        <img src="/images/Frapped-USDT.png" width="50" height="50" />
+        <div class="pricesImg">
+          <p id="FUSDT" class="user"><%= FUSDT %></p>
+        </div>
+      </div>
     </div>
 
     <script>
       const API_URL = "<%= API_URL %>";
-const headers = '<%= headers %>';
-const Bitcoin = "<%= Bitcoin %>";
-const Etherium = "<%= Etherium %>";
-const USDT = "<%= USDT %>";
+      const headers = "<%= headers %>";
+      const Bitcoin = "<%= Bitcoin %>";
+      const Etherium = "<%= Etherium %>";
+      const USDT = "<%= USDT %>";
 
-function updatePrice(id, newPrice) {
-const priceElement = document.getElementById(id);
-const imageElement = document.getElementById(`${id}-img`);
-const previousPrice = parseFloat(priceElement.textContent);
+      function updatePrice(id, newPrice) {
+        const priceElement = document.getElementById(id);
+        const imageElement = document.getElementById(`${id}-img`);
+        const previousPrice = parseFloat(priceElement.textContent);
 
-if (newPrice > previousPrice) {
-priceElement.classList.remove("price-down");
-priceElement.classList.add("price-up");
-imageElement.src = "/images/green 2.png";
-imageElement.style.display = "inline"; // Ensure the image is visible
-} else if (newPrice < previousPrice) {
-priceElement.classList.remove("price-up");
-priceElement.classList.add("price-down");
-imageElement.src = "/images/red 2.png";
-imageElement.style.display = "inline"; // Ensure the image is visible
-} else {
-priceElement.classList.remove("price-up", "price-down");
-imageElement.style.display = "none"; // Hide the image if no change
-}
+        if (newPrice > previousPrice) {
+          priceElement.classList.remove("price-down");
+          priceElement.classList.add("price-up");
+          imageElement.src = "/images/green 2.png";
+          imageElement.style.display = "inline"; // Ensure the image is visible
+        } else if (newPrice < previousPrice) {
+          priceElement.classList.remove("price-up");
+          priceElement.classList.add("price-down");
+          imageElement.src = "/images/red 2.png";
+          imageElement.style.display = "inline"; // Ensure the image is visible
+        } else {
+          priceElement.classList.remove("price-up", "price-down");
+          imageElement.style.display = "none"; // Hide the image if no change
+        }
 
-priceElement.textContent = newPrice.toFixed(3); // Update the price
-}
+        priceElement.textContent = newPrice.toFixed(3); // Update the price
+      }
 
+      async function fetchPrices() {
+        // console.log("Fetching prices...");
+        try {
+          const headers = new Headers({
+            Accept: "application/json",
+            "X-API-Token": "799470de-8a4c-4ee5-b0a4-a6321b0e9dc2",
+          });
 
-async function fetchPrices() {
-// console.log("Fetching prices...");
-try {
-const headers = new Headers({
-Accept: "application/json",
-"X-API-Token": "799470de-8a4c-4ee5-b0a4-a6321b0e9dc2",
-});
+          const Bresponse = await fetch(API_URL + Bitcoin, { headers });
+          if (!Bresponse.ok)
+            throw new Error(`HTTP error! status: ${Bresponse.status}`);
+          const Bresult = await Bresponse.json();
+          // console.log("Bitcoin data:", Bresult);
+          const Bprice = parseFloat(Bresult.bids[1].px);
+          // console.log("Bitcoin price:", Bprice);
 
-const Bresponse = await fetch(API_URL + Bitcoin, { headers });
-if (!Bresponse.ok) throw new Error(`HTTP error! status: ${Bresponse.status}`);
-const Bresult = await Bresponse.json();
-// console.log("Bitcoin data:", Bresult);
-const Bprice = parseFloat(Bresult.bids[1].px);
-// console.log("Bitcoin price:", Bprice);
+          const Eresponse = await fetch(API_URL + Etherium, { headers });
+          if (!Eresponse.ok)
+            throw new Error(`HTTP error! status: ${Eresponse.status}`);
+          const Eresult = await Eresponse.json();
+          // console.log("Ethereum data:", Eresult);
+          const Eprice = parseFloat(Eresult.bids[1].px);
+          // console.log("Ethereum price:", Eprice);
 
-const Eresponse = await fetch(API_URL + Etherium, { headers });
-if (!Eresponse.ok) throw new Error(`HTTP error! status: ${Eresponse.status}`);
-const Eresult = await Eresponse.json();
-// console.log("Ethereum data:", Eresult);
-const Eprice = parseFloat(Eresult.bids[1].px);
-// console.log("Ethereum price:", Eprice);
+          const Uresponse = await fetch(API_URL + USDT, { headers });
+          if (!Uresponse.ok)
+            throw new Error(`HTTP error! status: ${Uresponse.status}`);
+          const Uresult = await Uresponse.json();
+          // console.log("USDT data:", Uresult);
+          const Uprice = parseFloat(Uresult.bids[1].px);
+          // console.log("USDT price:", Uprice);
 
-const Uresponse = await fetch(API_URL + USDT, { headers });
-if (!Uresponse.ok) throw new Error(`HTTP error! status: ${Uresponse.status}`);
-const Uresult = await Uresponse.json();
-// console.log("USDT data:", Uresult);
-const Uprice = parseFloat(Uresult.bids[1].px);
-// console.log("USDT price:", Uprice);
+          updatePrice("Bprice", Bprice);
+          updatePrice("Eprice", Eprice);
+          updatePrice("Uprice", Uprice);
+        } catch (error) {
+          console.error("Error fetching prices:", error);
+        }
+      }
 
-updatePrice("Bprice", Bprice);
-updatePrice("Eprice", Eprice);
-updatePrice("Uprice", Uprice);
-} catch (error) {
-console.error("Error fetching prices:", error);
-}
-}
-
-setInterval(fetchPrices, 3000);
-fetchPrices();
+      setInterval(fetchPrices, 3000);
+      fetchPrices();
     </script>
   </body>
 </html>

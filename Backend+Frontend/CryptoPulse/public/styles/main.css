@@ -3,21 +3,45 @@
   --card-width: calc(var(--card-height) / 1.5);
 }
 
-body {
-  min-height: 100vh;
-  background: #212534;
+.container{
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+}
+
+.token{
+  width: auto;
+  display: flex;
   flex-direction: column;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 50px;
+}
+
+.pricesImg{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: #0d0d0f;
+  align-items: center;
+  font-family: sans-serif;
 }
 
 h1 {
   color: white;
-  font-family: "Titan One", cursive;
+  /* font-family: "Titan One", cursive; */
   margin-bottom: 20px;
+}
+
+.title{
+  text-align: center;
+  color: gold;
 }
 
 .card {
@@ -36,7 +60,7 @@ h1 {
   display: flex;
   font-size: 1.5em;
   color: rgb(88 199 250 / 0%);
-  font-family: "Gloria Hallelujah", cursive;
+  /* font-family: "Gloria Hallelujah", cursive; */
 }
 
 .card:hover {
@@ -117,17 +141,17 @@ a {
   color: #212534;
   text-decoration: none;
   font-family: sans-serif;
-  font-weight: bold;
+  /* font-weight: bold; */
   margin-top: 2rem;
 }
 
 h2{
-  font-family: "Titan One", cursive;
+  /* font-family: "Titan One", cursive; */
 }
 .user {
   color: white;
   font-size: 24px;
-  font-family: "Titan One", cursive;
+  /* font-family: "Titan One", cursive; */
 }
 
 #FUSDT {
