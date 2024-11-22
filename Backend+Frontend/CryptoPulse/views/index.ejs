@@ -2,12 +2,6 @@
 <html>
   <head>
     <title>Crypto</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
   </head>
 
@@ -81,10 +75,7 @@
       async function fetchPrices() {
         // console.log("Fetching prices...");
         try {
-          const headers = new Headers({
-            Accept: "application/json",
-            "X-API-Token": "799470de-8a4c-4ee5-b0a4-a6321b0e9dc2",
-          });
+          // headers from .env here;
 
           const Bresponse = await fetch(API_URL + Bitcoin, { headers });
           if (!Bresponse.ok)

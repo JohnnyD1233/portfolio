@@ -1,11 +1,14 @@
 import express from "express";
 import axios from "axios";
+import env from "dotenv";
+
+env.config();
 const app = express();
 const port = 3000;
-const API_URL = "https://api.blockchain.com/v3/exchange/l2/";
+const API_URL = process.env.API_URL;
 const headers = {
   Accept: "application/json",
-  "X-API-Token": "799470de-8a4c-4ee5-b0a4-a6321b0e9dc2",
+  "X-API-Token": process.env.X_API_TOKEN,
 };
 
 app.use(express.static("public"));
